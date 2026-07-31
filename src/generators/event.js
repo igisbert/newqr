@@ -39,10 +39,13 @@ export default {
     const location = await input({ message: 'Ubicación (opcional, Enter para omitir):', theme });
     const description = await input({ message: 'Descripción (opcional, Enter para omitir):', theme });
 
-    let vevent = `BEGIN:VEVENT\nSUMMARY:${title}\nDTSTART:${formatEventDate(startDate)}\nDTEND:${formatEventDate(endDate)}`;
+    const uid = `${Date.now()}@newqr`;
+    const dtstamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
+    let vevent = `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//newqr//ES\nBEGIN:VEVENT\nUID:${uid}\nDTSTAMP:${dtstamp}\nSUMMARY:${title}\nDTSTART:${formatEventDate(startDate)}\nDTEND:${formatEventDate(endDate)}`;
     if (location) vevent += `\nLOCATION:${location}`;
-    if (description) vevent += `\nDESCRIPTION:${description}`;
-    vevent += '\nEND:VEVENT';
+    if (description) vevent += `\nDESCRIPTION:${description.replace(/\n/g, '\\n')}`;
+    vevent += '\nEND:VEVENT\nEND:VCALENDAR';
 
     return vevent;
   }

@@ -8,7 +8,10 @@ export default {
   async generate() {
     const url = await input({
       message: 'Introduce la URL:',
-      validate: (value) => isNonEmpty(value) || 'La URL no puede estar vacía',
+      validate: (value) => {
+        if (!isNonEmpty(value)) return 'La URL no puede estar vacía';
+        return isValidUrl(value) || 'Introduce una URL válida';
+      },
       theme
     });
     return ensureHttps(url);

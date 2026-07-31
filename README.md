@@ -14,6 +14,12 @@ npm install -g newqr
 newqr
 ```
 
+O sin instalar:
+
+```bash
+npx newqr
+```
+
 Selecciona el tipo de QR, introduce los datos y elige el formato de salida (PNG, SVG o portapapeles).
 
 ## Tipos de QR soportados
@@ -31,3 +37,7 @@ Selecciona el tipo de QR, introduce los datos y elige el formato de salida (PNG,
 ## Requisitos
 
 - Node.js >= 18
+
+## Licencia
+
+ISC

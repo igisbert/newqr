@@ -1,10 +1,10 @@
 {
   "name": "newqr",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "CLI generador de códigos QR con menú interactivo",
   "type": "module",
   "bin": {
-    "newqr": "./bin/newqr.js"
+    "newqr": "bin/newqr.js"
   },
   "engines": {
     "node": ">=18"
@@ -18,8 +18,12 @@
     "cli",
     "terminal"
   ],
-  "author": "",
+  "author": "igisbert",
   "license": "ISC",
+  "files": [
+    "bin",
+    "src"
+  ],
   "dependencies": {
     "@inquirer/prompts": "^8.5.2",
     "chalk": "^6.0.0",

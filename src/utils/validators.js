@@ -8,7 +8,7 @@ export function isValidUrl(str) {
     new URL(str);
     return true;
   } catch {
-    return /^https?:\/\//i.test(str);
+    return /^\S+\.\S+$/.test(str);
   }
 }
 

@@ -1,5 +1,5 @@
 import { input } from '@inquirer/prompts';
-import { isNonEmpty, isValidEmail } from '../utils/validators.js';
+import { isValidEmail } from '../utils/validators.js';
 import { theme } from '../utils/theme.js';
 
 export default {

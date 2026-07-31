@@ -15,7 +15,7 @@ export default {
     const email = await input({ message: 'Correo (opcional, Enter para omitir):', theme });
     const address = await input({ message: 'Dirección (opcional, Enter para omitir):', theme });
 
-    let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:${name}`;
+    let vcard = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nN:${name};;;;`;
     if (phone) vcard += `\nTEL:${phone}`;
     if (email) vcard += `\nEMAIL:${email}`;
     if (address) vcard += `\nADR:;;${address};;;;`;

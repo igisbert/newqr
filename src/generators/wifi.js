@@ -2,6 +2,10 @@ import { input, select } from '@inquirer/prompts';
 import { isNonEmpty } from '../utils/validators.js';
 import { theme } from '../utils/theme.js';
 
+function escapeWifi(str) {
+  return str.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/"/g, '\\"').replace(/:/g, '\\:');
+}
+
 export default {
   name: 'WiFi',
   async generate() {
@@ -30,6 +34,6 @@ export default {
       });
     }
 
-    return `WIFI:T:${security};S:${ssid};P:${password};;`;
+    return `WIFI:T:${security};S:${escapeWifi(ssid)};P:${escapeWifi(password)};;`;
   }
 };

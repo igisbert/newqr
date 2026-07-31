@@ -1,5 +1,5 @@
 import { input } from '@inquirer/prompts';
-import { isNonEmpty, isValidPhone } from '../utils/validators.js';
+import { isValidPhone } from '../utils/validators.js';
 import { theme } from '../utils/theme.js';
 
 export default {
@@ -13,6 +13,7 @@ export default {
 
     const message = await input({ message: 'Mensaje predefinido (opcional, Enter para omitir):', theme });
 
+    if (!message) return `SMSTO:${phone}`;
     return `SMSTO:${phone}:${message}`;
   }
 };
