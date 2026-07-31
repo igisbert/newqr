@@ -7,7 +7,7 @@ export async function savePng(payload) {
   const filePath = getSavePath(filename);
 
   try {
-    await QRCode.toFile(filePath, payload, { type: "png", width: 1024 });
+    await QRCode.toFile(filePath, payload, { type: "png", width: 1024, errorCorrectionLevel: 'H', margin: 1 });
     console.log('✅ QR guardado en: ' + filePath);
     return filePath;
   } catch (error) {

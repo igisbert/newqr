@@ -8,7 +8,7 @@ export async function saveSvg(payload) {
   const filePath = getSavePath(filename);
 
   try {
-    const svg = await QRCode.toString(payload, { type: 'svg' });
+    const svg = await QRCode.toString(payload, { type: 'svg', errorCorrectionLevel: 'H', margin: 1 });
     await fs.writeFile(filePath, svg, 'utf-8');
     console.log('✅ QR guardado en: ' + filePath);
     return filePath;

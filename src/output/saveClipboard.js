@@ -36,7 +36,7 @@ export async function saveClipboard(payload) {
   const filePath = getSavePath(filename);
 
   try {
-    await QRCode.toFile(filePath, payload, { type: 'png' });
+    await QRCode.toFile(filePath, payload, { type: 'png', errorCorrectionLevel: 'H', margin: 1 });
 
     const platform = process.platform;
     let success = false;
