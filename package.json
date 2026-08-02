@@ -1,6 +1,6 @@
 {
   "name": "newqr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI generador de códigos QR con menú interactivo",
   "type": "module",
   "bin": {
